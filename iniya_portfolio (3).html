@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Iniya Priyadharshini K — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --rose:#FF6B8A;
+  --rose-light:#FFE4EC;
+  --rose-dark:#C4304F;
+  --teal:#0ABFBC;
+  --teal-light:#D6F5F4;
+  --teal-dark:#077B79;
+  --amber:#F7A325;
+  --amber-light:#FFF0D4;
+  --navy:#0F1B3C;
+  --navy-mid:#1E2D52;
+  --cream:#FFFDF8;
+  --warm:#FDF6ED;
+  --text:#1A1219;
+  --muted:#7A6E76;
+  --light:#F0EBF4;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.1rem 6vw;
+  background:rgba(255,253,248,0.88);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,107,138,0.15);
+}
+.logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--rose-dark);letter-spacing:0.02em}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:0.8rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--rose)}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;align-items:center;
+  padding:7rem 6vw 4rem;
+  background:var(--navy);
+  position:relative;overflow:hidden;
+}
+.hero-bg-circle{
+  position:absolute;border-radius:50%;filter:blur(80px);opacity:0.25;
+}
+.c1{width:500px;height:500px;background:var(--rose);top:-100px;right:-100px}
+.c2{width:350px;height:350px;background:var(--teal);bottom:-80px;left:10%}
+.c3{width:200px;height:200px;background:var(--amber);top:40%;right:30%}
+
+.hero-left{position:relative;z-index:2}
+.hero-tag{
+  display:inline-block;font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;
+  background:rgba(255,107,138,0.2);color:var(--rose);
+  padding:0.4rem 1rem;border-radius:99px;margin-bottom:1.5rem;
+  border:1px solid rgba(255,107,138,0.35);
+}
+.hero-name{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.8rem,5.5vw,5rem);
+  font-weight:700;color:#fff;line-height:1.05;
+  margin-bottom:0.3rem;
+}
+.hero-name span{color:var(--rose);font-style:italic}
+.hero-sub{font-size:1rem;font-weight:300;color:rgba(255,255,255,0.6);margin:1.2rem 0 2rem;line-height:1.8;max-width:420px}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{
+  padding:0.75rem 1.8rem;border-radius:99px;
+  background:var(--rose);color:#fff;font-size:0.85rem;font-weight:600;
+  text-decoration:none;letter-spacing:0.05em;
+  transition:transform 0.2s,box-shadow 0.2s;
+  box-shadow:0 4px 20px rgba(255,107,138,0.4);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,107,138,0.5)}
+.btn-ghost{
+  padding:0.75rem 1.8rem;border-radius:99px;
+  border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.8);
+  font-size:0.85rem;font-weight:500;text-decoration:none;letter-spacing:0.05em;
+  transition:border-color 0.2s,background 0.2s;
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.07)}
+
+.hero-right{position:relative;z-index:2;display:flex;justify-content:center;align-items:center}
+.avatar-ring{
+  width:320px;height:320px;border-radius:50%;
+  background:linear-gradient(135deg,var(--rose),var(--teal));
+  padding:4px;
+}
+.avatar-inner{
+  width:100%;height:100%;border-radius:50%;
+  background:var(--navy-mid);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;
+}
+.avatar-initials{font-family:'Playfair Display',serif;font-size:4rem;font-weight:700;color:var(--rose);line-height:1}
+.avatar-label{font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+
+.hero-stats{
+  display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;
+  border-top:1px solid rgba(255,255,255,0.1);
+}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--rose)}
+.stat-label{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:2px}
+
+/* ── SECTION SHARED ── */
+section{padding:6rem 6vw}
+.sec-label{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--rose);margin-bottom:0.8rem;
+}
+.sec-label::before{content:'';width:28px;height:2px;background:var(--rose);border-radius:2px}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;line-height:1.15;margin-bottom:1rem}
+
+/* ── ABOUT ── */
+#about{background:var(--warm)}
+.about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:5rem;align-items:start;margin-top:3rem}
+.about-text{font-size:1.05rem;font-weight:300;color:#4A3F48;line-height:1.95}
+.about-text strong{color:var(--text);font-weight:600}
+
+.highlight-box{
+  background:var(--navy);border-radius:20px;padding:2.5rem;
+  margin-top:2rem;position:relative;overflow:hidden;
+}
+.highlight-box::before{
+  content:'';position:absolute;top:-40px;right:-40px;
+  width:150px;height:150px;border-radius:50%;
+  background:var(--rose);opacity:0.15;
+}
+.highlight-title{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--rose);margin-bottom:1.2rem;font-weight:600}
+.edu-list{list-style:none;display:flex;flex-direction:column;gap:1rem}
+.edu-item{padding:1rem 1.2rem;background:rgba(255,255,255,0.05);border-radius:12px;border-left:3px solid var(--rose)}
+.edu-school{font-size:0.88rem;font-weight:600;color:#fff}
+.edu-deg{font-size:0.78rem;color:rgba(255,255,255,0.5);margin-top:2px}
+.edu-yr{font-size:0.72rem;color:var(--rose);margin-top:3px;font-weight:500}
+
+/* training cards */
+.training-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.training-card{
+  background:#fff;border-radius:14px;padding:1.3rem;
+  border:1px solid rgba(255,107,138,0.12);
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.training-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(255,107,138,0.12)}
+.training-icon{font-size:1.5rem;margin-bottom:0.5rem}
+.training-name{font-size:0.85rem;font-weight:600;color:var(--text)}
+.training-org{font-size:0.75rem;color:var(--muted);margin-top:2px}
+
+/* ── PROJECTS ── */
+#projects{background:#fff}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:3rem}
+.project-card{
+  border-radius:20px;overflow:hidden;
+  transition:transform 0.3s,box-shadow 0.3s;
+  cursor:default;
+}
+.project-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.1)}
+.pc-header{padding:2rem 1.8rem 1.5rem;position:relative;overflow:hidden}
+.pc-header::after{
+  content:'';position:absolute;bottom:-30px;right:-30px;
+  width:100px;height:100px;border-radius:50%;opacity:0.2;
+}
+.pc1 .pc-header{background:linear-gradient(135deg,#FF6B8A,#FF8FA3)}
+.pc2 .pc-header{background:linear-gradient(135deg,#0ABFBC,#3DD6D4)}
+.pc3 .pc-header{background:linear-gradient(135deg,#F7A325,#FBC35A)}
+.pc-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:rgba(255,255,255,0.3);line-height:1}
+.pc-title{font-size:1.05rem;font-weight:700;color:#fff;margin-top:0.5rem}
+.pc-body{padding:1.5rem 1.8rem;background:#FAFAF8;border:1px solid rgba(0,0,0,0.05);border-top:none;border-radius:0 0 20px 20px}
+.pc-desc{font-size:0.83rem;color:#5A5260;line-height:1.75;font-weight:300}
+.pc-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem}
+.pc-tag{font-size:0.7rem;padding:0.25rem 0.7rem;border-radius:99px;font-weight:500}
+.pc1 .pc-tag{background:var(--rose-light);color:var(--rose-dark)}
+.pc2 .pc-tag{background:var(--teal-light);color:var(--teal-dark)}
+.pc3 .pc-tag{background:var(--amber-light);color:#8B5E07}
+
+/* ── SKILLS ── */
+#skills{background:var(--navy);position:relative;overflow:hidden}
+#skills::before{
+  content:'';position:absolute;top:-200px;left:-100px;
+  width:500px;height:500px;border-radius:50%;
+  background:var(--rose);opacity:0.07;filter:blur(60px);
+}
+#skills .sec-title{color:#fff}
+.skills-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem}
+.skill-col-title{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1.2rem;font-weight:600}
+.skill-tags{display:flex;flex-wrap:wrap;gap:0.7rem}
+.s-tag{
+  font-size:0.82rem;font-weight:500;padding:0.5rem 1.1rem;border-radius:99px;
+  background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.85);
+  border:1px solid rgba(255,255,255,0.12);
+  transition:background 0.2s,border-color 0.2s;
+}
+.s-tag:hover{background:rgba(255,107,138,0.2);border-color:rgba(255,107,138,0.5);color:#fff}
+
+.cert-grid{display:flex;flex-direction:column;gap:0.8rem}
+.cert-card{
+  display:flex;align-items:center;gap:1rem;
+  background:rgba(255,255,255,0.05);border-radius:12px;padding:0.9rem 1.1rem;
+  border:1px solid rgba(255,255,255,0.07);
+  transition:background 0.2s;
+}
+.cert-card:hover{background:rgba(255,255,255,0.09)}
+.cert-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.ci-rose{background:rgba(255,107,138,0.2)}
+.ci-teal{background:rgba(10,191,188,0.2)}
+.ci-amber{background:rgba(247,163,37,0.2)}
+.cert-name{font-size:0.83rem;font-weight:500;color:rgba(255,255,255,0.85)}
+.cert-by{font-size:0.72rem;color:rgba(255,255,255,0.4);margin-top:1px}
+
+/* activities strip */
+.activities{margin-top:3rem;padding-top:3rem;border-top:1px solid rgba(255,255,255,0.08)}
+.act-title{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1.2rem;font-weight:600}
+.act-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0.8rem}
+.act-item{
+  background:rgba(255,255,255,0.04);border-radius:12px;padding:1rem 1.2rem;
+  border-left:3px solid var(--teal);
+}
+.act-text{font-size:0.8rem;color:rgba(255,255,255,0.7);line-height:1.6;font-weight:300}
+.act-badge{
+  display:inline-block;margin-top:0.5rem;
+  font-size:0.65rem;padding:0.2rem 0.6rem;border-radius:99px;
+  background:rgba(10,191,188,0.15);color:var(--teal);font-weight:600;letter-spacing:0.05em;text-transform:uppercase;
+}
+
+/* ── CONTACT ── */
+#contact{
+  background:linear-gradient(135deg,var(--rose-dark) 0%,#8B2252 50%,var(--navy) 100%);
+  text-align:center;padding:7rem 6vw;position:relative;overflow:hidden;
+}
+#contact::before{
+  content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:rgba(255,255,255,0.04);
+}
+#contact .sec-label{color:rgba(255,200,210,0.9);justify-content:center}
+#contact .sec-label::before{background:rgba(255,200,210,0.7)}
+.contact-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:700;font-style:italic;color:#fff;margin-bottom:0.8rem;position:relative}
+.contact-sub{font-size:0.95rem;color:rgba(255,255,255,0.6);font-weight:300;margin-bottom:3.5rem;position:relative}
+.contact-cards{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;position:relative}
+.contact-card{
+  background:rgba(255,255,255,0.1);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.2);border-radius:16px;
+  padding:1.5rem 2rem;min-width:180px;
+  transition:transform 0.2s,background 0.2s;text-decoration:none;
+}
+.contact-card:hover{transform:translateY(-4px);background:rgba(255,255,255,0.18)}
+.cc-icon{font-size:1.5rem;margin-bottom:0.5rem}
+.cc-label{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:600}
+.cc-val{font-size:0.82rem;color:#fff;margin-top:0.3rem;font-weight:500;word-break:break-all}
+
+footer{text-align:center;padding:1.5rem;font-size:0.75rem;color:var(--muted);background:var(--warm);border-top:1px solid rgba(0,0,0,0.06)}
+
+@media(max-width:900px){
+  #hero{grid-template-columns:1fr;text-align:center}
+  .hero-right{display:none}
+  .hero-btns{justify-content:center}
+  .hero-stats{justify-content:center}
+  .about-grid,.skills-layout{grid-template-columns:1fr}
+  .projects-grid{grid-template-columns:1fr}
+  .training-grid,.act-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Iniya K.</div>
+  <ul class="nav-links">
+    <li><a href="#about" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'});return false;">About</a></li>
+    <li><a href="#projects" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'});return false;">Projects</a></li>
+    <li><a href="#skills" onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'});return false;">Skills</a></li>
+    <li><a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-circle c1"></div>
+  <div class="hero-bg-circle c2"></div>
+  <div class="hero-bg-circle c3"></div>
+
+  <div class="hero-left">
+    <h1 class="hero-name">Iniya<br><span>Priyadharshini</span></h1>
+    <p class="hero-sub">Final-year CSE student crafting purposeful web experiences — from e-learning platforms to management systems that make work easier.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact" class="btn-ghost">Get in Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">3</div><div class="stat-label">Projects</div></div>
+      <div><div class="stat-num">4</div><div class="stat-label">Certifications</div></div>
+      <div><div class="stat-num">2</div><div class="stat-label">Trainings</div></div>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-label">About me</div>
+  <h2 class="sec-title">Driven by curiosity,<br>shaped by code</h2>
+  <div class="about-grid">
+    <div>
+      <p class="about-text">I'm a passionate Computer Science student at <strong>Jai Shriram Engineering College</strong>, Tiruppur, expected to graduate in 2026. I thrive in demanding environments and believe every challenge is an opportunity to grow — both for myself and the organisations I work with.</p>
+      <p class="about-text" style="margin-top:1.2rem">My journey spans building interactive learning platforms, digital management tools, and booking systems — always with a focus on clean code, practical impact, and user-friendly design. I've also gained hands-on industry exposure through inplant training at two tech companies.</p>
+
+      <div class="training-grid">
+        <div class="training-card">
+          <div class="training-icon">💻</div>
+          <div class="training-name">Web Development</div>
+          <div class="training-org">Nxtlogic Software Solutions</div>
+        </div>
+        <div class="training-card">
+          <div class="training-icon">📊</div>
+          <div class="training-name">Data Science</div>
+          <div class="training-org">Brainery Spot Technology</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="highlight-box">
+        <div class="highlight-title">Education</div>
+        <ul class="edu-list">
+          <li class="edu-item">
+            <div class="edu-school">Jai Shriram Engineering College</div>
+            <div class="edu-deg">B.E – Computer Science & Engineering</div>
+            <div class="edu-yr">2022 – 2026</div>
+          </li>
+          <li class="edu-item" style="border-color:var(--teal)">
+            <div class="edu-school">ST. Aloysius Girls Higher Sec School</div>
+            <div class="edu-deg">HSC</div>
+            <div class="edu-yr">2021 – 2022</div>
+          </li>
+          <li class="edu-item" style="border-color:var(--amber)">
+            <div class="edu-school">ST. Aloysius Girls Higher Sec School</div>
+            <div class="edu-deg">SSLC</div>
+            <div class="edu-yr">2019 – 2020</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-label">Selected projects</div>
+  <h2 class="sec-title">Things I've built</h2>
+  <div class="projects-grid">
+    <div class="project-card pc1">
+      <div class="pc-header">
+        <div class="pc-num">01</div>
+        <div class="pc-title">Learning Platform</div>
+      </div>
+      <div class="pc-body">
+        <p class="pc-desc">An e-learning platform making education accessible anytime, anywhere. Features video lectures, interactive quizzes, progress monitoring, and a safe user-friendly environment.</p>
+        <div class="pc-tags">
+          <span class="pc-tag">HTML/CSS</span>
+          <span class="pc-tag">JavaScript</span>
+          <span class="pc-tag">E-Learning</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card pc2">
+      <div class="pc-header">
+        <div class="pc-num">02</div>
+        <div class="pc-title">Leave Management System</div>
+      </div>
+      <div class="pc-body">
+        <p class="pc-desc">A digital system streamlining leave requests and approvals for employees and managers. Reduces manual paperwork and enhances workplace transparency with real-time tracking.</p>
+        <div class="pc-tags">
+          <span class="pc-tag">Java</span>
+          <span class="pc-tag">Web App</span>
+          <span class="pc-tag">Management</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card pc3">
+      <div class="pc-header">
+        <div class="pc-num">03</div>
+        <div class="pc-title">Bus Ticket Booking</div>
+      </div>
+      <div class="pc-body">
+        <p class="pc-desc">An online platform for seamless bus ticket booking — browse routes, choose seats, make payments, and receive instant confirmation, all in one fast flow.</p>
+        <div class="pc-tags">
+          <span class="pc-tag">JavaScript</span>
+          <span class="pc-tag">HTML/CSS</span>
+          <span class="pc-tag">Booking System</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-label">Skills & credentials</div>
+  <h2 class="sec-title">What I bring to the table</h2>
+  <div class="skills-layout">
+    <div>
+      <div class="skill-col-title">Languages & Technologies</div>
+      <div class="skill-tags">
+        <span class="s-tag">Java</span>
+        <span class="s-tag">C Programming</span>
+        <span class="s-tag">JavaScript</span>
+        <span class="s-tag">HTML5</span>
+        <span class="s-tag">CSS3</span>
+        <span class="s-tag">Git & GitHub</span>
+        <span class="s-tag">Figma ✦ Beginner</span>
+      </div>
+
+      <div style="margin-top:2.5rem">
+        <div class="skill-col-title">Workshops Attended</div>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <div class="cert-icon ci-rose">🎓</div>
+            <div><div class="cert-name">Data Science & Full Stack</div><div class="cert-by">Novitech R&D Private Limited</div></div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon ci-teal">🐙</div>
+            <div><div class="cert-name">Git & GitHub Mastery</div><div class="cert-by">Microsoft Learn Student Ambassador</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="skill-col-title">Certifications</div>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="cert-icon ci-rose">🤖</div>
+          <div><div class="cert-name">Introduction to AI</div><div class="cert-by">Infosys Springboard</div></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon ci-teal">🌐</div>
+          <div><div class="cert-name">HTML & CSS</div><div class="cert-by">Let's Upgrade</div></div>
+        </div>
+      </div>
+
+      <div class="activities">
+        <div class="act-title">Co-curricular Achievements</div>
+        <div class="act-grid">
+          <div class="act-item">
+            <div class="act-text">Best Googler — GIZMO'24 National Level Technical Symposium, Erode Sengunthar Engineering College</div>
+            <span class="act-badge">🥈 2nd Place</span>
+          </div>
+          <div class="act-item">
+            <div class="act-text">RBI@90 Nationwide Online Quiz 2024 — Reserve Bank of India</div>
+            <span class="act-badge">Participant</span>
+          </div>
+          <div class="act-item">
+            <div class="act-text">Flipkart Runway Season 4 — Flipkart</div>
+            <span class="act-badge">Participant</span>
+          </div>
+          <div class="act-item">
+            <div class="act-text">Naukri Campus Young Turks 2024 — Naukri</div>
+            <span class="act-badge">Participant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-label">Get in touch</div>
+  <h2 class="contact-title">Let's build something<br>together</h2>
+  <p class="contact-sub">Open to internships, collaborations, and conversations about tech.</p>
+  <div class="contact-cards">
+    <div class="contact-card">
+      <div class="cc-icon">✉️</div>
+      <div class="cc-label">Email</div>
+      <div class="cc-val">dharishnik209@gmail.com</div>
+    </div>
+    <div class="contact-card">
+      <div class="cc-icon">📞</div>
+      <div class="cc-label">Phone</div>
+      <div class="cc-val">+91 8681965051</div>
+    </div>
+    <div class="contact-card">
+      <div class="cc-icon">💼</div>
+      <div class="cc-label">LinkedIn</div>
+      <div class="cc-val">iniya-priyadharshini-k</div>
+    </div>
+    <div class="contact-card">
+      <div class="cc-icon">📍</div>
+      <div class="cc-label">Location</div>
+      <div class="cc-val">Tiruppur, Tamil Nadu</div>
+    </div>
+  </div>
+</section>
+
+<footer></footer>
+
+</body>
+</html>
